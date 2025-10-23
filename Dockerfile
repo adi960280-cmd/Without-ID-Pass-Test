@@ -6,5 +6,7 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
+RUN python serverV3.py
+CMD gunicorn app:app & python3 main.py
 
 
